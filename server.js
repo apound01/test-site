@@ -1,17 +1,9 @@
 ﻿var express = require('express');
-var bodyParser = require("body-parser");
-var engines = require('consolidate');
 var app = express();
 var port = process.env.port || 1337
 
-app.engine('html', engines.mustache);
-app.set('view engine', 'html');
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(express.static("public"));
-
 app.get('/', function (req, res) {
-    res.render("index");
+    res.render("index.html);
 });
 
 var server = app.listen(port, function () {
